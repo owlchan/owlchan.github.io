@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>教育資金の暴落対策ノート｜NISAの出口戦略</title>
+<style>
+  :root {
+    --teal:        #8aada8;
+    --teal-dark:   #6a9590;
+    --teal-light:  #eaf3f2;
+    --teal-xlight: #f4f9f8;
+    --pink-soft:   #f7e8e8;
+    --pink-med:    #e8a8a8;
+    --yellow-soft: #fdf6e0;
+    --yellow-med:  #f0d878;
+    --green-soft:  #7aaa88;
+    --dark:        #3a3a3a;
+    --gray:        #888;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+    background: #f0f4f3;
+    color: var(--dark);
+    padding: 24px 16px 60px;
+    line-height: 1.9;
+    font-size: 15px;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+  .banner {
+    background: var(--teal);
+    color: white;
+    padding: 36px 24px 30px;
+    text-align: center;
+  }
+  .banner .small { font-size: 13px; letter-spacing: .08em; opacity: .95; }
+  .banner h1 { font-size: 24px; line-height: 1.5; margin: 8px 0 10px; }
+  .banner .sub { font-size: 14px; }
+  .meta-row {
+    background: var(--teal-light);
+    padding: 10px 24px;
+    font-size: 13px; color: var(--teal-dark); font-weight: bold;
+    text-align: center;
+  }
+  .body { padding: 24px 24px 32px; }
+  p { margin-bottom: 14px; }
+  b, strong { color: var(--teal-dark); }
+  .mark { background: linear-gradient(transparent 60%, var(--yellow-med) 60%); font-weight: bold; }
+
+  .section { margin-bottom: 32px; }
+  .section-header {
+    background: var(--teal); color: white;
+    font-size: 16px; font-weight: bold;
+    padding: 10px 16px; border-radius: 6px;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-header .num {
+    background: white; color: var(--teal-dark);
+    border-radius: 50%;
+    width: 28px; height: 28px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .section-header.dark  { background: var(--teal-dark); }
+  .section-header.green { background: var(--green-soft); }
+  h3 {
+    font-size: 15px; color: var(--teal-dark);
+    margin: 20px 0 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  h3::before {
+    content: ''; display: inline-block;
+    width: 4px; height: 16px; background: var(--teal); border-radius: 2px;
+  }
+
+  .box {
+    border-radius: 8px; padding: 14px 16px; margin: 14px 0;
+  }
+  .box.yellow { background: var(--yellow-soft); border: 1.5px solid var(--yellow-med); }
+  .box.teal   { background: var(--teal-xlight); border: 1.5px solid var(--teal); }
+  .box.pink   { background: var(--pink-soft); border: 1.5px solid var(--pink-med); }
+  .box .box-title { font-weight: bold; margin-bottom: 6px; }
+
+  ul.dots { list-style: none; margin: 8px 0 14px; }
+  ul.dots li { padding-left: 1.2em; position: relative; margin-bottom: 8px; }
+  ul.dots li::before {
+    content: ''; position: absolute; left: 2px; top: .75em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--teal);
+  }
+
+  /* 回復までの期間 */
+  .history { display: grid; gap: 10px; margin: 12px 0 14px; }
+  .history .row {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 10px;
+    background: var(--teal-xlight); border-radius: 8px; padding: 10px 14px;
+  }
+  .history .name { font-weight: bold; font-size: 14px; }
+  .history .name small { display: block; font-weight: normal; color: var(--gray); font-size: 12px; }
+  .history .time {
+    background: var(--teal); color: white; font-weight: bold;
+    border-radius: 20px; padding: 2px 12px; font-size: 13px; white-space: nowrap;
+  }
+
+  /* 2つの手段 */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .compare .card { border: 2px solid var(--teal); border-radius: 10px; overflow: hidden; }
+  .compare .card-head { background: var(--teal); color: white; font-weight: bold; padding: 8px 12px; font-size: 14px; }
+  .compare .card.b { border-color: var(--green-soft); }
+  .compare .card.b .card-head { background: var(--green-soft); }
+  .compare .card-body { padding: 10px 12px; font-size: 14px; }
+  .compare .tag { font-size: 12px; font-weight: bold; color: var(--teal-dark); margin-top: 6px; }
+
+  /* 取り崩す順番 */
+  .steps { margin: 12px 0; }
+  .step {
+    display: grid; grid-template-columns: 44px 1fr; gap: 12px;
+    align-items: start; margin-bottom: 6px;
+  }
+  .step .circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--teal); color: white; font-weight: bold;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .step .txt { background: var(--teal-xlight); border-radius: 8px; padding: 10px 14px; }
+  .step .txt .t { font-weight: bold; }
+  .step .txt .d { font-size: 14px; }
+  .arrow { color: var(--teal); text-align: left; padding-left: 14px; font-size: 14px; line-height: 1; margin-bottom: 6px; }
+
+  /* わが家のチェック */
+  .check { list-style: none; }
+  .check li { margin-bottom: 8px; }
+  .check label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 5px; accent-color: var(--teal-dark); flex-shrink: 0; }
+
+  .summary li { margin-bottom: 10px; }
+  .cta {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--teal-dark); color: white; font-weight: bold;
+    border-radius: 30px; padding: 14px; margin: 14px 0 6px;
+  }
+  .note { font-size: 12px; color: var(--gray); line-height: 1.8; }
+  .footer { text-align: center; font-size: 12px; color: var(--gray); padding: 0 24px 24px; }
+
+  @media (max-width: 520px) {
+    body { padding: 12px 8px 40px; font-size: 15px; }
+    .body { padding: 20px 16px 28px; }
+    .banner h1 { font-size: 21px; }
+    .compare { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .container { box-shadow: none; }
+    .section-header, .banner, .history .time, .step .circle { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="banner">
+    <div class="small">オープンチャット限定</div>
+    <h1>教育資金の<br>暴落対策ノート</h1>
+    <div class="sub">NISAの「出口」、考えてる？</div>
+  </div>
+  <div class="meta-row">4歳・2歳ママFP おうる</div>
+
+  <div class="body">
+
+    <div class="section">
+      <p>コツコツ育てた教育資金<b>800万円</b>が、大学入学の直前の暴落で<b>550万円</b>に…。</p>
+      <p>NISAで教育資金を貯めているなら、これは普通に起こりえる話です。</p>
+      <p>「増やし方」は調べたけど、「使い方（出口）」は考えていない。<span class="mark">実はここが一番こわいところ</span>なんです。</p>
+      <p>このノートでは、暴落が来ても慌てずに教育資金を守るための考え方を、3つにまとめました。</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="section">
+      <div class="section-header"><span class="num">1</span>暴落しても、全部は売らない</div>
+
+      <p>いちばん大事なことから。<span class="mark">暴落が来ても、全部は売らないでください。</span></p>
+      <p>証券会社の画面に出ているマイナスは「評価損」。売らなければ、まだ確定した損ではありません。</p>
+      <p>いちばん避けたいのは、いちばん安くなった底のタイミングで、NISAを全部売ってしまうことです。</p>
+
+      <h3>過去の暴落は、時間をかけて戻ってきた</h3>
+      <div class="history">
+        <div class="row"><div class="name">リーマンショック（2008年）<small>5割以上下がった、歴史上最大級の暴落</small></div><div class="time">約5〜6年</div></div>
+        <div class="row"><div class="name">コロナショック（2020年）</div><div class="time">約半年</div></div>
+        <div class="row"><div class="name">トランプ関税ショック（2025年4月）<small>S&amp;P500が2割近く下がる場面も</small></div><div class="time">数か月</div></div>
+      </div>
+      <p class="note">※元の水準に戻るまでのおおよその期間。過去の実績で、これからも同じとは限りません。</p>
+
+      <div class="box yellow">
+        <div class="box-title">出口で100点をねらわない</div>
+        いちばん高いところで売り抜けるのは、プロでも無理です。<br>
+        「元本より増えていればOK」「70点取れたら大成功」くらいの気持ちでいると、暴落のときも落ち着いていられます。
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <div class="section-header"><span class="num">2</span>売るときの2つのルール</div>
+
+      <h3>① 売るときも「時間分散」</h3>
+      <p>積み立てのとき、毎月コツコツ買ってきましたよね。売るときも同じで、<b>一度に全部売らず、少しずつ売る</b>のが暴落のときのいちばんの守りになります。</p>
+
+      <h3>② 売るのは「今すぐ必要な分」だけ</h3>
+      <p>大学の学費は、4年分をまとめて払うわけではありません。毎年、または半期ごとの支払いが基本です。</p>
+      <p>18歳のときに暴落していても、売るのは<span class="mark">1年目に必要な分だけ</span>。2〜4年目の分は運用を続けて、回復を待つという選択肢もあります。</p>
+
+      <div class="box teal">
+        教育資金は「増やすゲーム」じゃなくて、<b>必要なときに、必要な分だけ使うもの</b>。<br>
+        この感覚があると、出口でも落ち着いて決められます。
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+      <div class="section-header"><span class="num">3</span>暴落の前にできる、2つの備え</div>
+      <p>どちらか一つでも、組み合わせてもOK。性格や家計に合う方を選んでください。</p>
+
+      <div class="compare">
+        <div class="card">
+          <div class="card-head">A. 高校から少しずつ現金に</div>
+          <div class="card-body">
+            子どもが高校に入ったころから少しずつ売って、大学1年目の分を先に現金で用意しておく方法。
+            <div class="tag">○ 暴落が来ても安心<br>△ 運用期間が短くなる分、増えにくい</div>
+            <div class="tag">向いている人：値動きに一喜一憂したくない人</div>
+          </div>
+        </div>
+        <div class="card b">
+          <div class="card-head">B. ギリギリまで運用する</div>
+          <div class="card-body">
+            18歳近くまで運用を続けて、暴落が来たらNISA以外のお金で乗り切る方法。
+            <div class="tag">○ 長く運用できる分、増えやすい<br>△ 使う順番を先に決めておくことが必須</div>
+            <div class="tag">向いている人：できるだけ増やしたい人</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Bを選ぶなら、使う順番を決めておく</h3>
+      <div class="steps">
+        <div class="step"><div class="circle">1</div><div class="txt"><div class="t">守りのお金（預金・学資保険）</div><div class="d">受け取る額が読めるお金。暴落したら、まずここから使います。学資保険は増やす手段としては微妙でも、「守り」としては価値があります。</div></div></div>
+        <div class="arrow">▼</div>
+        <div class="step"><div class="circle">2</div><div class="txt"><div class="t">奨学金で一時的につなぐ</div><div class="d">足りなければ、奨学金で時間をかせぐのも一つの手。日本学生支援機構の貸与型なら、在学中は利息がかからず、卒業後の利率にも上限があります。</div></div></div>
+        <div class="arrow">▼</div>
+        <div class="step"><div class="circle">3</div><div class="txt"><div class="t">NISAは必要な分だけ取り崩す</div><div class="d">それでも足りないときにNISAの出番。売るのは今すぐ必要な分だけにして、残りは回復を待ちます。</div></div></div>
+      </div>
+      <p class="note">※奨学金の条件は種類によって違います。利用する前に必ず確かめてください。</p>
+    </div>
+
+    <!-- わが家 -->
+    <div class="section">
+      <div class="section-header green">わが家の出口チェック</div>
+      <p>当てはまるものにチェックしてみてね。</p>
+      <ul class="check">
+        <li><label><input type="checkbox">暴落しても全部は売らない、と決めている</label></li>
+        <li><label><input type="checkbox">大学1年目にいくら要るか、だいたい分かっている</label></li>
+        <li><label><input type="checkbox">預金や学資など、値動きしない「守りのお金」がある</label></li>
+        <li><label><input type="checkbox">AとB、どちらの備え方にするか決めている</label></li>
+        <li><label><input type="checkbox">暴落したときに使う順番を、夫婦で話している</label></li>
+      </ul>
+      <p class="note">チェックがつかなかった所が、これから準備するところです。</p>
+    </div>
+
+    <!-- まとめ -->
+    <div class="section">
+      <div class="section-header dark">まとめ</div>
+      <ul class="dots summary">
+        <li>暴落のマイナスは<b>評価損</b>。全部売るのだけは避ける</li>
+        <li>売るときも<b>時間分散</b>。必要な分だけ、そのつど売る</li>
+        <li>備えは「<b>高校から少しずつ現金に</b>」か「<b>ギリギリまで運用して、順番を決めて取り崩す</b>」</li>
+        <li>取り崩す順番は <b>守りのお金 → 奨学金 → 必要な分だけNISA</b></li>
+      </ul>
+      <p>教育資金は、増やすゲームじゃなくて、必要なときに安心して使うためのもの。どんなことが起きても慌てないように、今のうちに準備しておきたいですね。</p>
+
+      <div class="box pink">
+        「うちの場合はどうしたらいい？」「もう子どもが15歳だけど間に合う？」<br>
+        そんな質問は、オープンチャットで気軽にどうぞ。
+      </div>
+      <a class="cta" href="https://owlchan-money.com/openchat">オープンチャットに戻る</a>
+    </div>
+
+    <p class="note">※このノートは情報提供を目的としたもので、特定の金融商品をすすめるものではありません。運用は元本保証ではなく、過去の実績は将来の成果を約束するものではありません。最終的な判断はご自身でお願いします。</p>
+  </div>
+
+  <div class="footer">© おうる（@owlchan0money）</div>
+</div>
+</body>
+</html>
